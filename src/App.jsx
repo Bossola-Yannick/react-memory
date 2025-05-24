@@ -60,7 +60,7 @@ export default function App() {
       if (cards[first].image === cards[second].image) {
         setMatched((prev) => [...prev, cards[first].image]);
       }
-      retournement des carte si celle-ci ne sont pas identique
+      // retournement des carte si celle-ci ne sont pas identique
       setTimeout(() => {
         setFlipped([]);
       }, 600);
