@@ -1,8 +1,9 @@
 import React from "react";
 
-
-function Button({label}){
-    return <button>{label}</button>
+export default function Button({ onClick, children, className }) {
+  return (
+    <button onClick={onClick} className={`custom-button ${className}`}>
+      {children}
+    </button>
+  );
 }
-
-export default Button;

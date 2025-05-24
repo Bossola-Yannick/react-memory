@@ -1,42 +1,115 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+css Copier Modifier body {
+  font-family: Arial, sans-serif;
+  background-color: #fefefe;
+  margin: 0;
+  padding: 16px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.memory-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 480px;
+  margin: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+  transition: background-color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.start-button:hover {
+  background-color: #0056b3;
+}
+
+.game-info {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.victory-message {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 12px;
+  justify-content: center;
 }
 
 .card {
-  padding: 2em;
+  width: 90px;
+  height: 90px;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform 0.5s;
+  overflow: hidden;
 }
 
-.read-the-docs {
-  color: #888;
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: white;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive: tablette ou + */
+@media (min-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 100px);
+    gap: 16px;
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.count {
+  color: #fefefe;
 }
