@@ -12,7 +12,7 @@ const images = [
   "xenomorphe.png",
 ];
 // fonctiopn pour retourner un tableau aléatoire (mélange des carte)
-function shuffleArray(array) {
+function randomPlace(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
   const [gameWon, setGameWon] = useState(false);
   // lancement de la partie et remise à zéro des paramettres
   const startGame = () => {
-    const newArray = shuffleArray([...images, ...images]).map(
+    const newArray = randomPlace([...images, ...images]).map(
       (image, index) => ({
         id: index,
         image,
